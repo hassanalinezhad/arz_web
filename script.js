@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //کلید API رایگان
   const apiKey = "freeIEnSL0pvAM6S8ZuWTcmOmf6t6Smh";
   //آدرس API
-  const apiUrl = `http://api.navasan.tech/latest/?api_key=${apiKey}`;
+  const apiUrl = `https://api.navasan.tech/latest/?api_key=${apiKey}`;
   const ratesDiv = document.getElementById("rates");
 
   //درخواست به سرور برای دریافت نرخ ارز
