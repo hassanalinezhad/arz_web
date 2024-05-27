@@ -1,79 +1,72 @@
 // از https://www.navasan.tech/webserviceguide/#http-request استفاده شده است
 document.addEventListener("DOMContentLoaded", () => {
-  //کلید API رایگان (۱۲۰ درخواست در روز)
+  //کلید API رایگان
   const apiKey = "freeIEnSL0pvAM6S8ZuWTcmOmf6t6Smh";
   //آدرس API
   const apiUrl = `http://api.navasan.tech/latest/?api_key=${apiKey}`;
-  //دریافت المان نمایش نرخ ارز
   const ratesDiv = document.getElementById("rates");
 
-  //درخواست اطلاعات از API
+  //درخواست به سرور برای دریافت نرخ ارز
   fetch(apiUrl)
-    //تبدیل پاسخ به JSON
+    //دریافت پاسخ و تبدیل آن به JSON
     .then((response) => response.json())
-    //نمایش نرخ ها
     .then((data) => {
       //نرخ های مرتبط با ارزهای مورد نظر
       const relevantRates = {
-        //دلار آمریکا
+        //نرخ آمریکا
         usd: data.usd_sell,
-        //دلار کانادا
+        //نرخ کانادا
         cad: data.cad,
-        //دلار استرالیا
+        //نرخ استرالیا
         aud: data.aud,
-        //درهم امارات متحده عربی
+        //نرخ امارات متحده عربی
         aed: data.aed_sell,
-        //لیر ترکیه
+        //نرخ ترکیه
         try: data.try,
-        //یوان چین
+        //نرخ چین
         cny: data.cny,
-        //ین ژاپن
+        //نرخ ژاپن
         jpy: data.jpy,
-        //وون کره جنوبی
+        //نرخ کره جنوبی
         krw: data.krw,
-        //روپیه هند
+        //نرخ هند
         inr: data.inr,
-        //افغانی افغانستان
+        //نرخ افغانستان
         afn: data.afn,
-        //فرانک سوئیس
+        //نرخ سوئیس
         chf: data.chf,
-        //روپیه پاکستان
+        //نرخ پاکستان
         pkr: data.pkr,
-        //دینار عراق
+        //نرخ عراق
         iqd: data.iqd,
       };
-      //نمایش نرخ ها
       displayRates(relevantRates);
     })
     //نمایش خطا در صورت وجود
     .catch((error) => console.error("Error fetching exchange rates:", error));
 
-  //نمایش نرخ ها
   function displayRates(rates) {
-    //ساخت جدول
     const table = document.createElement("table");
-    //ساخت سرصفحه جدول
     const thead = document.createElement("thead");
-    //ساخت بدنه جدول
     const tbody = document.createElement("tbody");
 
-    //ساخت سطر سرصفحه
+    // ساخت سربرگ جدول
     const headerRow = document.createElement("tr");
-    //ساخت ستون کشور
+    //عنوان کشور
     const headerCountry = document.createElement("th");
     headerCountry.textContent = "کشور";
-    //ساخت ستون نرخ
+    //عنوان نرخ
     const headerValue = document.createElement("th");
     headerValue.textContent = "نرخ";
-    //ساخت ستون مقایسه با دلار
+    //عنوان مقایسه
     const headerComparison = document.createElement("th");
-    headerComparison.textContent = "مقایسه با دلار";
-    //ساخت ستون تاریخ
+    headerComparison.textContent = "مقایسه";
+    //عنوان تاریخ
     const headerDate = document.createElement("th");
     headerDate.textContent = "تاریخ";
-    //ساخت ستون زمان
+    //عنوان زمان
     const headerTimestamp = document.createElement("th");
-    headerTimestamp.textContent = "آخرین به روزرسانی";
+    headerTimestamp.textContent = "آخرین بروزرسانی";
     headerRow.appendChild(headerCountry);
     headerRow.appendChild(headerValue);
     headerRow.appendChild(headerComparison);
@@ -113,32 +106,26 @@ document.addEventListener("DOMContentLoaded", () => {
       iqd: "🇮🇶",
     };
 
-    //مقایسه نرخ هر ارز با دلار
+    // مقایسه نرخ ارزها با نرخ دلار
     const usdRate = parseFloat(rates["usd"].value);
     const comparisonArrows = {};
 
-    //مقایسه نرخ هر ارز با دلار
     for (const currency in rates) {
-      //اگر ارز دلار باشد، ادامه بده
+      // اگر ارز مورد نظر دلار باشد، ادامه بده
       if (currency === "usd") continue;
-      //نرخ ارز
       const rate = parseFloat(rates[currency].value);
-      //اگر نرخ ارز بیشتر از نرخ دلار باشد، نشانه گذاری با پیکان بالا، در غیر اینصورت نشانه گذاری با پیکان پایین
+      // اگر نرخ ارز بیشتر از نرخ دلار باشد، نشانه گذاری با پیکان بالا، در غیر این صورت پیکان پایین
       comparisonArrows[currency] = rate > usdRate ? "🔼" : "🔽";
     }
 
+    // ایجاد ردیف های جدول
     for (const [currency, { value, date, timestamp }] of Object.entries(
       rates
     )) {
-      //ساخت سطر
       const row = document.createElement("tr");
-      //ساخت ستون کشور
       const cellCountry = document.createElement("td");
-      //نمایش پرچم کشور و نام کشور
       cellCountry.innerHTML = `${countryFlags[currency]} ${countryNames[currency]}`;
-      //ساخت ستون نرخ
       const cellValue = document.createElement("td");
-      //نمایش نرخ به صورت فارسی
       cellValue.textContent = convertToFarsiNumbers(
         formatNumberWithCommas(value)
       );
@@ -161,18 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
     ratesDiv.appendChild(table);
   }
 
-  //تبدیل اعداد انگلیسی به اعداد فارسی
+  // تبدیل اعداد انگلیسی به اعداد فارسی
   function convertToFarsiNumbers(num) {
     const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
     return num.toString().replace(/\d/g, (digit) => farsiDigits[digit]);
   }
 
-  //فرمت دهی اعداد با جداکننده کاما
+  // اضافه کردن ویرگول به اعداد
   function formatNumberWithCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  //فرمت تاریخ به فارسی
+  // تبدیل تاریخ به فارسی
   function formatDateToFarsi(dateString) {
     const months = [
       "فروردین",
@@ -188,13 +175,13 @@ document.addEventListener("DOMContentLoaded", () => {
       "بهمن",
       "اسفند",
     ];
-    //تقسیم تاریخ به سال، ماه و روز
-    const [month, day] = dateString.split(" ")[0].split("-");
+    // تاریخ را به سه بخش تقسیم کن
+    const [year, month, day] = dateString.split(" ")[0].split("-");
     const monthName = months[parseInt(month, 10) - 1];
     return `${convertToFarsiNumbers(day)} ${monthName}`;
   }
 
-  //فرمت زمان به فارسی
+  // تبدیل زمان به فارسی
   function formatTimestampToFarsi(timestamp) {
     const date = new Date(timestamp * 1000);
     const hours = date.getHours();
