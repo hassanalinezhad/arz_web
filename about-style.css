@@ -1,0 +1,22 @@
+.about_container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* background-color: red; */
+  padding-top: 25px;
+}
+
+.about_image {
+  width: 500px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.about_us {
+  background-color: aliceblue;
+  border-radius: 15px;
+  padding: 15px;
+  flex: 0.8;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+}

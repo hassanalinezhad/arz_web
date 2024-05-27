@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="global.css" />
+    <title>وبسایت ارز حرکت</title>
+  </head>
+  <body>
+    <header>
+      <!-- 
+      این قسمت برای نمایش منوی بالایی وبسایت است (nav) 
+    -->
+      <nav class="nav">
+        <div class="container navbar">
+          <!--
+            (ul) برای نمایش لیست ها استفاده می شود
+          -->
+          <ul class="navbar_list">
+            <li class="navbar_link">
+              <!--
+                (a) برای ایجاد لینک استفاده می شود
+              -->
+              <a href="index.html" class="link"> خانه </a>
+            </li>
+            <li class="navbar_link">
+              <a class="link"> تماس با ما </a>
+            </li>
+            <li class="navbar_link">
+              <a href="register.html" class="link"> ثبت نام/ورود </a>
+            </li>
+          </ul>
+          <!--
+            (div) برای نمایش لوگوی وبسایت استفاده می شود
+          -->
+          <div class="website_logo">
+            <a href="index.html" class="link">
+              <img
+                src="assets/images/Harekat Studio.png"
+                alt="logo"
+                class="logo"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--
+      این قسمت برای نمایش اسلایدر وبسایت است
+    -->
+    <div class="section">
+      <h1>نرخ ارز</h1>
+      <div id="rates">
+        <!--
+          این قسمت برای نمایش ارزها است و با استفاده از جاوا اسکریپت اطلاعات ارزها از سایت مرکز بانک ایران گرفته می شود
+        -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!--
+      این قسمت برای فوتر وبسایت است
+    -->
+    <footer class="footer container_large">
+      <!--
+        این قسمت برای نمایش کپی رایت وبسایت است
+      -->
+      <div class="copyRight">
+        <p>تمامی حقوق مادی و معنوی این وبسایت متعلق به حسن علینژاد می‌باشد.</p>
+      </div>
+      <div class="socialMedia">
+        <div class="social-links-footer">
+          <!--
+            ایکون شبکه های اجتماعی در این قسمت قرار می گیرد
+            از ایکون های فونت آوسوم استفاده شده است
+          -->
+          <a href="#" class="social-link-footer">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link-footer">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="#" class="social-link-footer">
+            <i class="fa fa-telegram"></i>
+          </a>
+        </div>
+      </div>
+      <button class="slide">ایمیل ما!</button>
+    </footer>
+  </body>
+</html>

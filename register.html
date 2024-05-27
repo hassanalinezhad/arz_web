@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="register-style.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ثبت نام/ورود</title>
+  </head>
+  <body style="background-color: black">
+    <!--
+      (form) برای ایجاد فرم استفاده می شود
+      
+      (input) برای ایجاد فیلد های فرم استفاده می شود
+
+      (label) برای ایجاد برچسب های فیلد های فرم استفاده می شود
+
+      (button) برای ایجاد دکمه های فرم استفاده می شود
+
+      (div) برای ایجاد بخش های مختلف استفاده می شود
+    -->
+    <form>
+      <h3>ثبت‌نام/ورود</h3>
+      <!--
+        این قسمت برای نمایش نام کاربری و رمز عبور است
+      -->
+      <label for="username"> نام کاربری </label>
+      <!--
+        (placeholder) برای ایجاد متن پیش فرض در فیلد های فرم استفاده می شود
+
+        (value) برای ایجاد مقدار پیش فرض در فیلد های فرم استفاده می شود
+      -->
+      <input
+        type="text"
+        id="username"
+        value=""
+        placeholder="لطفا نام کاربری خود را وارد کنید"
+      />
+
+      <label for="password">رمز عبور</label>
+      <input
+        type="password"
+        id="password"
+        value=""
+        placeholder="لطفا رمز عبور خود را وارد کنید"
+      />
+      <!--
+        این قسمت برای نمایش دکمه های ورود و ثبت نام است
+      -->
+      <button class="slide enter_button">
+        <a class="link" href="index.html">ورود</a>
+      </button>
+      <script>
+        document.querySelector(".link").addEventListener("click", function () {
+          //check if the username and password are not empty if they are empty show an alert else go to the index page
+          if (
+            document.querySelector("#username").value == "" ||
+            document.querySelector("#password").value == ""
+          ) {
+            alert("لطفا نام کاربری و رمز عبور خود را وارد کنید");
+          } else {
+            location.href = "index.html";
+          }
+        });
+      </script>
+      <!--
+        این قسمت برای نمایش شبکه های اجتماعی است
+      -->
+      <div class="social">
+        <div class="go"><i class="fa fa-google"></i> Google</div>
+        <div class="fb"><i class="fa fa-facebook"></i> Facebook</div>
+      </div>
+    </form>
+  </body>
+</html>

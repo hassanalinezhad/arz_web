@@ -1,0 +1,93 @@
+/* Global Styles */
+
+/*
+  این فایل برای استایل هایی است که در تمام صفحات استفاده میشوند
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+  این فایل برای استایل هایی است که در تمام صفحات استفاده میشوند
+
+  فانت های استفاده شده در این پروژه باید در این فایل import شوند
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "bakh-med";
+  direction: rtl;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* transition: background-color 0.5s ease; */
+  background-color: #f1f5f9;
+}
+
+/*
+  تقسیم بندی صفحه به قسمت های مختلف
+*/
+.section {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: relative;
+  top: 60px;
+}
+
+.section_footer {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: relative;
+  top: 60px;
+}
+
+/*
+  قرار دادن محتوا صفحه در وسط
+*/
+.container {
+  width: 100%;
+  /* background-color: blue; */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+  این کلاس برای صفحاتی است که محتوای آنها باید در وسط قرار بگیرد و تا حد ممکن عرض آنها بیشتر از 1200px نشود
+*/
+
+.container.container_large {
+  width: 100%;
+  max-width: 1400px;
+}
+
+/*
+  فانت هدر ها و تایتل ها
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "bakh-bold";
+}
+
+/*
+  ایمپورت فانت های استفاده شده در این پروژه
+*/
+
+@font-face {
+  font-family: "bakh-reg";
+  src: url("./font/bakh/Yekan Bakh Fa 04 Regular.ttf");
+}
+
+@font-face {
+  font-family: "bakh-med";
+  src: url("./font/bakh/Yekan Bakh Fa 05 Medium.ttf");
+}
+
+@font-face {
+  font-family: "bakh-bold";
+  src: url("./font/bakh/Yekan Bakh Fa 06 Bold.ttf");
+}
